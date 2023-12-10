@@ -59,7 +59,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="HUD"]
+[node name="LifePointButton" type="Button" parent="HUD"]
 anchors_preset = -1
 anchor_left = 0.881944
 anchor_top = 0.0169753
@@ -71,5 +71,13 @@ offset_right = -1.0
 offset_bottom = 1.0
 metadata/_edit_use_anchors_ = true
 
+[node name="LabelLP" type="Label" parent="HUD"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.035
+offset_right = -0.32
+offset_bottom = 0.32
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/LifePointButton" to="." method="_on_button_pressed"]

@@ -425,3 +425,4 @@ player = NodePath("../player1")
 [node name="player2" parent="." instance=ExtResource("2_ykwfq")]
 position = Vector2(158, -309)
 suffixAction = "j2"
+hud_visibily = false

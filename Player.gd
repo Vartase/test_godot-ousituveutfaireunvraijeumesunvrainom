@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var suffixAction = ""
 @export var dash_call = 40
 @export var max_life_point = 100
+@export var hud_visibily : bool = true
 
 var can_dash : bool = true
 var life_point = max_life_point
@@ -25,6 +26,7 @@ func _process(delta):
 
 func _ready():
 	set_life_point(max_life_point)
+	$HUD.visible = hud_visibily
 
 func _on_timer_timeout():
 	can_dash = true 
@@ -32,7 +34,8 @@ func _on_timer_timeout():
 
 func set_life_point(new_life_point:int):
 	life_point = new_life_point
-	$HUD/Button.set_text("%d / %d" % [life_point, max_life_point])
+	$HUD/LabelLP.set_text("%d / %d" % [life_point, max_life_point])
 
 func _on_button_pressed():
 	set_life_point(life_point - 1) 
+	print($HUD.get_children())
