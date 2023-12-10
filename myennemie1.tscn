@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jpdq2nyvhq2"]
+
+[ext_resource type="Texture2D" uid="uid://2tl0yps7weqj" path="res://gobelin volé.png" id="1_4qxpp"]
+[ext_resource type="Script" path="res://myennemie1.gd" id="1_n2mn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua5f4"]
+size = Vector2(24, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp1c0"]
+size = Vector2(35, 36)
+
+[node name="myennemie1" type="CharacterBody2D"]
+script = ExtResource("1_n2mn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_ua5f4")
+
+[node name="GobelinVolé" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -1)
+texture = ExtResource("1_4qxpp")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-3, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_fp1c0")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
